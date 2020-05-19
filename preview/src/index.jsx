@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from 'lib';
+import Button from 'lib';
 
 import './index.less';
 
 function App() {
-  return <Component />;
+  return <Button>Test</Button>;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));

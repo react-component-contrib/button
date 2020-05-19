@@ -1,1 +1,95 @@
 @import "@react-component-contrib/style/less/index.less";
+
+// Button Variables
+@button-font-weight: 400;
+@button-font-size: @font-size;
+
+@button-color: @font-color;
+@button-background-color: @color-white;
+
+@button-border-radius: @border-radius;
+@button-border-width: @border-width;
+@button-border-style: @border-style;
+@button-border-color: @border-color;
+
+@button-height: 32px;
+
+@button-padding-horizontal: @padding-md;
+
+@button-line-height: @line-height;
+
+@button-disabled-color: @disabled-font-color;
+@button-disabled-background-color: @disabled-background-color;
+@button-disabled-border-color: @disabled-border-color;
+
+// Button
+@button-prefix-class-name: concat-class-name(@prefix-class-name, 'button');
+
+.border-color(@color; @background-color; @border-color) {
+  color: @color;
+  background-color: @background-color;
+  border-color: @border-color;
+}
+
+.@{button-prefix-class-name} {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: @button-font-size;
+  font-weight: @button-font-weight;
+  color: @button-color;
+  height: @button-height;
+  border-radius: @button-border-radius;
+  border: @button-border-width @button-border-style @button-border-color;
+  background-color: @button-background-color;
+  padding: 0 @button-padding-horizontal;
+  line-height: @button-line-height;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  text-decoration: none;
+  cursor: pointer;
+
+  // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
+  user-select: none;
+
+  // Avoid browser delay of 300 ms
+  // References:
+  // 1. https://thx.github.io/mobile/300ms-click-delay
+  // 2. https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action
+  // 3. https://www.zhangxinxu.com/wordpress/2018/07/chrome-safari-touchmove-preventdefault-treated-as-passive/
+  touch-action: manipulation;
+
+  &:hover {
+    .border-color(@color-primary, @background-color, @color-primary);
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    > * {
+      pointer-events: none;
+    }
+
+    &:hover {
+      .border-color(@font-color, @background-color, @border-color);
+    }
+  }
+}
+
+.@{button-prefix-class-name}-text {
+  .border-color(@color-primary, transparent, transparent);
+
+  &:hover {
+    .border-color(@color-primary, transparent, transparent);
+  }
+}
+
+a.@{button-prefix-class-name}{
+  padding-top: 0.1px;
+  line-height: 30px;
+
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
