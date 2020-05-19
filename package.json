@@ -1,0 +1,31 @@
+{
+  "name": "@react-component-contrib/button",
+  "version": "0.0.1",
+  "description": "React Component",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@react-component-contrib/style": "^0.0.1",
+    "@react-component-contrib/util": "^0.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@react-component-contrib/cli": "^1.2.0"
+  },
+  "config": {
+    "e2e": {
+      "port": 8001,
+      "launchTimeout": 100000
+    },
+    "preview": {
+      "port": 8000
+    }
+  },
+  "scripts": {
+    "start": "rc-cli start",
+    "build": "rc-cli build",
+    "test": "rc-cli test"
+  }
+}
