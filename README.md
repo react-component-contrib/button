@@ -46,7 +46,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ### Button
 
-| property | description | type | default |
+| Property | Description | Type | Default |
 | -------- | ----------- | :--: | :-----: |
 | prefixClassName | set prefix class | `string` | - |
 | disabled | disabled state of button	 | `boolean` | `false` |
@@ -61,7 +61,7 @@ It accepts all props which native buttons support.
 
 ### ButtonGroup
 
-| property | description | type | default |
+| Property | Description | Type | Default |
 | -------- | ----------- | :--: | :-----: |
 | prefixClassName | set prefix class, the button class of the group will also change | `string` | - |
 
