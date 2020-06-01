@@ -1,10 +1,17 @@
 {
   "name": "@react-component-contrib/button",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "React Component",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "MIT",
+  "keywords": [
+    "react",
+    "typescript",
+    "react-component"
+  ],
+  "author": "Shen Chang",
+  "homepage": "https://github.com/react-component-contrib/button",
   "dependencies": {
     "@react-component-contrib/style": "^0.0.1",
     "@react-component-contrib/util": "^0.0.4",
