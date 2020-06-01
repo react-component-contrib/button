@@ -49,6 +49,7 @@
   background-image: none;
   text-decoration: none;
   cursor: pointer;
+  transition: all .2s linear;
 
   // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
   user-select: none;
@@ -60,27 +61,72 @@
   // 3. https://www.zhangxinxu.com/wordpress/2018/07/chrome-safari-touchmove-preventdefault-treated-as-passive/
   touch-action: manipulation;
 
+  outline: none;
+
   &:hover {
     .border-color(@color-primary, @background-color, @color-primary);
   }
 
+  &:active {
+    opacity: 0.35;
+  }
+
   &[disabled] {
     cursor: not-allowed;
+    color: @button-disabled-color;
+    background-color: @button-disabled-background-color;
+    border-color: @button-disabled-border-color;
+
     > * {
       pointer-events: none;
     }
 
     &:hover {
-      .border-color(@font-color, @background-color, @border-color);
+      .border-color(@button-disabled-color, @background-color, @border-color);
     }
   }
-}
 
-.@{button-prefix-class-name}-text {
-  .border-color(@color-primary, transparent, transparent);
-
-  &:hover {
+  &-text {
     .border-color(@color-primary, transparent, transparent);
+
+    &:hover {
+      .border-color(@color-primary, transparent, transparent);
+    }
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
+  &-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+  &-group > & {
+    margin-left: -1px;
+    border-radius: 0;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:first-child {
+      border-top-left-radius: @button-border-radius;
+      border-bottom-left-radius: @button-border-radius;
+    }
+
+    &:last-child {
+      border-top-right-radius: @button-border-radius;
+      border-bottom-right-radius: @button-border-radius;
+    }
+
+    &:hover {
+      z-index: 2;
+    }
   }
 }
 

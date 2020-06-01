@@ -1,5 +1,6 @@
 import React from 'react';
 import { Omit, omit, classNames, concat } from '@react-component-contrib/util';
+import Group from './button-group';
 
 export type ButtonHTMLType = 'submit' | 'button' | 'reset';
 
@@ -22,7 +23,11 @@ export interface IBaseButtonProps {
 
 export type ButtonProps = Partial<IBaseButtonProps & AnchorButtonProps & NativeButtonProps>;
 
-const Button: React.FC<ButtonProps> = ({
+interface IButtonFunctionComponent extends React.FC<ButtonProps> {
+  Group: typeof Group;
+}
+
+const Button: IButtonFunctionComponent = ({
   prefixClassName,
   block,
   text,
@@ -53,5 +58,7 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
+Button.Group = Group;
 
 export default Button;
